@@ -1,0 +1,21 @@
+{
+	"manifest_version": 3,
+ 	"version": "1.0",
+  	"name": "Fuzzler Ext",
+    "host_permissions": ["http://*/*","https://*/*"],
+    "permissions": [
+    	"storage",
+        "tabs",
+        "activeTab"
+  	],
+    "icons": {
+     	"16": "fuzExt16.png",
+      	"32": "fuzExt32.png",
+      	"48": "fuzExt48.png",
+      	"128": "fuzExt128.png"
+    	},
+    "action": {
+      	"default_title": "Fuzzler Ext",
+      	"default_popup": "popup.html"
+    	}
+}
