@@ -1,4 +1,4 @@
-# Library Search - Web Extension
+# Fuzzler - Web Extension
 --------------
 Fuzzler is a pentesting tool that creates tailored password lists from webpages using CeWL, Artificial Inteligence, and hashcat.
 

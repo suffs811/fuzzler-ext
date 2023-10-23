@@ -3,6 +3,7 @@
  	"version": "1.0",
   	"name": "Fuzzler Ext",
     "host_permissions": ["http://*/*","https://*/*"],
+    "content_scripts": [{"matches": ["http://*/*","https://*/*"], "js": ["content.js"]}],
     "permissions": [
     	"storage",
         "tabs",
