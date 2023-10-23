@@ -16,22 +16,23 @@ function fetchUrl(url){
 	return fetch(url).then((response) => {page = response.text(); return page;}).then((page) => {ip.textContent = "Fetched "+url; return page;})
 	.then((page) => {
 
-		console.log("PAGE: "+page);
-
 
 		ip.textContent = "Fuzzing "+url;
 
 		// crawl webpage
-		console.log("page: "+page)
 
 		var splitPage = page.toString().split(" ");
+
 		var initWords = [];
 
-		for (i of splitPage.toString()) {
-			if (i.length > 3 && !("<" in i) && i.length < 10) {
-				initWords.push(i);
+		for (i of splitPage) {
+			if (i.length > 3 && !(i.includes("<")) && !(i.includes(">")) && !(i.includes("}")) && !(i.includes("{")) && !(i.includes("#")) && !(i.includes("=")) && !(i.includes(":")) && !(i.includes(".")) && !(i.includes("'")) && !(i.includes('"')) && !(i.includes(Array(9999).keys())) && i.length < 10) {
+				initWords.push(i.trim());
+			} else {
+				continue;
 			}
 		}
+
 		console.log("WORDS: "+initWords)
 		fuzz(initWords)
 	});
@@ -41,7 +42,7 @@ button.addEventListener("click", () => {
 	fetchUrl(url)
 });
 
-function fuzz(url, initWords) {
+function fuzz(initWords) {
 
 	// extend with nlp
 	const natural = require('natural');
@@ -51,7 +52,6 @@ function fuzz(url, initWords) {
 		console.log(synonyms);
 		initWords.push(synonyms);
 	}
-
 
 	// fuzz wordlist
 
