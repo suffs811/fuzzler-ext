@@ -47,7 +47,7 @@ function fuzz(initWords) {
 
 		newWords.push(word)
 
-		for (let i = 0; i < 9; i++) {
+		for (let i = 0; i < 99; i++) {
 			newWords.push(word+i);
 			newWords.push(i+word)
 		}
