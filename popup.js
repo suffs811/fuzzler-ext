@@ -82,6 +82,6 @@ function fuzz(initWords) {
 }
 
 button.addEventListener("click", () => {
-	ip.textContent = "Fuzzing "+url;
+	ip.textContent = "Fuzzing "+url+"... This may take a few minutes";
 	fetchUrl(url)
 });
