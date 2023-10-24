@@ -5,18 +5,63 @@
   <meta charset="utf-8" />
   <style>
 
+	html {
+		background-color: #3b3b3b;
+		color: white;
+		text-align: center;
+		font-family: Arial;
+		height: auto;
+		margin-bottom: 10px;
+		font-size: 16px;
+	}
+
+	body {
+		padding: 5px;
+		height: 450px;
+		width: 300px;
+	}
+
+	#button {
+		background-color: #e847e8;
+		color: white;
+		border-radius: 5px;
+		border: 1px solid white;
+		margin-top: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	#button:hover {
+		background-color: #ad36ad;
+	}
+
+	#output {
+		height: 200px;
+		background-color: #5c5c5c;
+		color: white;
+		overflow: scroll;
+	}
+
+	foooter {
+		background-color: white;
+		height: 3px;
+		position: static;
+	}
   </style>
 </head>
 <body>
-  <div id="container">
-    <h1>Fuzzler Extension</h1>
-    <h3>Create Tailored Password Lists</h3>
-  </div>
-  <button type="submit" id="button">Fuzz</button>
-  <p id="ip"></p>
-  <br>
-  <p id="output"></p>
+	<div id="container">
+		<h1>Fuzzler Limited</h1>
+		<h3>Create Tailored Password Lists</h3>
+  	</div>
+  	<button type="submit" id="button">Fuzz</button>
+  	<p id="ip">Initiate Fuzz</p>
+  	<p>Results</p>
+ 	 <textarea id="output"></textarea>
+  	<footer></footer>
   
-  <script src="popup.js"></script>
+  	<script src="./popup.js"></script>
 </body>
 </html>

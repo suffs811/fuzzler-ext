@@ -3,7 +3,7 @@ var output = document.getElementById("output");
 var ip = document.getElementById("ip");
 
 var url = function getUrl() {
-	var queryOptions = { active: true, windowId: chrome.windows.WINDOW_ID_CURRENT };
+	var queryOptions = { active: true, lastFocusedWindow: true };
 	const tabs = chrome.tabs.query(queryOptions, (tabs) => {
 		console.log(tabs[0].url);
 		url = tabs[0].url
@@ -16,10 +16,7 @@ function fetchUrl(url){
 	return fetch(url).then((response) => {page = response.text(); return page;}).then((page) => {ip.textContent = "Fetched "+url; return page;})
 	.then((page) => {
 
-
-		ip.textContent = "Fuzzing "+url;
-
-		// crawl webpage
+		// crawl webpage //
 
 		var splitPage = page.toString().split(" ");
 
@@ -33,57 +30,58 @@ function fetchUrl(url){
 			}
 		}
 
-		console.log("WORDS: "+initWords)
 		fuzz(initWords)
 	});
 }
 
-button.addEventListener("click", () => {
-	fetchUrl(url)
-});
-
 function fuzz(initWords) {
 
-	// extend with nlp
-	const natural = require('natural');
+	// fuzz wordlist //
 
-	for (word of initWords) {
-		const synonyms = natural.lookupSynonyms(word);
-		console.log(synonyms);
-		initWords.push(synonyms);
-	}
+	console.log(initWords)
 
-	// fuzz wordlist
+	var newWords = []
 
 	// add 0-99
 	for (word of initWords) {
-		for (let i = 0; i < 99; i++) {
-			initWords.push(word+i);
+
+		newWords.push(word)
+
+		for (let i = 0; i < 9; i++) {
+			newWords.push(word+i);
+			newWords.push(i+word)
 		}
+
+		// toggle case and reverse
+		newWords.push(word.toLowerCase());
+		newWords.push(word.toUpperCase());
+		newWords.push(word.split("").reverse().join(""));
+
+		// change to 1337 speak
+		var leet = word.toString()
+		var leet1 = leet.toLowerCase()
+		var leet2 = leet1.replace("/a/g", "4").replace("/e/g", "3").replace("/l/g", "1").replace("/t/g", "7").replace("/o/g", "0");
+		newWords.push(leet);
+
+	};
+
+	console.log(newWords);
+
+	var count = 0
+
+	for (word of newWords) {
+		output.value += word;
+		output.value += "\n";
+		count += 1
 	}
 
-	// toggle case and reverse
-	for (word of initWords) {
-		initWords.push(word.toLowerCase());
-		initWords.push(word.toUpperCase());
-		initWords.push(word.toggleCase());
-		initWords.push(word.split("").reverse().join(""));
-	}
+	ip.style.color = "#e847e8"
+	ip.textContent = "Fuzzing Complete | "+count+" words generated";
 
-	// change to 1337 speak
-	for (word of initWords) {
-		let leet = word.lower().split("").replace("a", "4").replace("e", "3").replace("l", "1").replace("t", "7").replace("o", "0").join("");
-		initWords.push(leet1);
-	}
 
-	// open wordlist in new page
-	var newButton = document.createElement("button");
-	newButton.textContent = "Show Wordlist";
-	newButton.setAttribute("target", "_blank");
-	document.appendChild(newButton);
-
-	newButton.addEventListener("click", (initWords) => {
-		window.open()
-		window.textContent = initWords
-	});
 }
+
+button.addEventListener("click", () => {
+	ip.textContent = "Fuzzing "+url;
+	fetchUrl(url)
+});
