@@ -40,10 +40,12 @@ function fuzz(initWords) {
 
 	console.log(initWords)
 
+	initWordsSet = new Set(initWords)
+
 	var newWords = []
 
 	// add 0-99
-	for (word of initWords) {
+	for (word of initWordsSet) {
 
 		newWords.push(word)
 
@@ -65,13 +67,13 @@ function fuzz(initWords) {
 
 	};
 
-	var finalWords = new Set(newWords)
-
-	console.log(finalWords);
+	console.log(newWords);
 
 	var count = 0;
 
-	for (word of finalWords) {
+	output.value = "";
+
+	for (word of newWords) {
 		output.value += word;
 		output.value += "\n";
 		count += 1;
@@ -84,6 +86,7 @@ function fuzz(initWords) {
 }
 
 button.addEventListener("click", () => {
-	ip.textContent = "Fuzzing "+url+"... This may take a few minutes";
+	ip.textContent = "Fuzzing "+url;
+	output.value = "This may take a few minutes...";
 	fetchUrl(url)
 });
