@@ -2,6 +2,8 @@
 --------------
 Fuzzler Limited is a pentesting Chrome extension that creates tailored password lists by crawling a webpage and fuzzing each word according to specific rules (append/prepend digits 0-9, all uppercase, all lowercase, reversed, and translated to 1337 speak).
 
+> The full Fuzzler CLI tool can be found [here](https://github.com/suffs811/fuzzler)
+
 ## installation
 *because this extension is still in development, it is not yet available in the extension stores, so you'll have to install it yourself but it's easy*
 
