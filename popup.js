@@ -61,21 +61,23 @@ function fuzz(initWords) {
 		var leet = word.toString()
 		var leet1 = leet.toLowerCase()
 		var leet2 = leet1.replace("/a/g", "4").replace("/e/g", "3").replace("/l/g", "1").replace("/t/g", "7").replace("/o/g", "0");
-		newWords.push(leet);
+		newWords.push(leet2);
 
 	};
 
-	console.log(newWords);
+	var finalWords = new Set(newWords)
 
-	var count = 0
+	console.log(finalWords);
 
-	for (word of newWords) {
+	var count = 0;
+
+	for (word of finalWords) {
 		output.value += word;
 		output.value += "\n";
-		count += 1
+		count += 1;
 	}
 
-	ip.style.color = "#e847e8"
+	ip.style.color = "#e847e8";
 	ip.textContent = "Fuzzing Complete | "+count+" words generated";
 
 
