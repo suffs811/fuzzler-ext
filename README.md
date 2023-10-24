@@ -21,4 +21,5 @@ Fuzzler Limited is a pentesting Chrome extension that creates tailored password 
 ## lmk if you have any suggestions or comments. thanks for checking it out! 
 
 > Copyright (c) 2023 suffs811 (Tanner Smith)
+
 > Distributed under the MIT license (see LICENSE file for details)
