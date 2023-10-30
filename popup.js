@@ -49,7 +49,7 @@ function fuzz(initWords) {
 
 	var newWords = []
 
-	// add 0-99
+	// prepend/append 0-99
 	for (word of initWordsSet) {
 
 		newWords.push(word)
@@ -107,6 +107,6 @@ function fuzz(initWords) {
 // create button to call fetchUrl and start the fuzzing process
 button.addEventListener("click", () => {
 	ip.textContent = "Fuzzing "+url;
-	output.value = "This may take a few minutes...";
+	output.value = "This may take a moment...";
 	fetchUrl(url)
 });
