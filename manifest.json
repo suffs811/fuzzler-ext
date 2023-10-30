@@ -4,8 +4,7 @@
   	"name": "Fuzzler Limited - Chrome Extension",
     "host_permissions": ["http://*/*","https://*/*"],
     "permissions": [
-        "tabs",
-        "activeTab"
+        "tabs"
   	],
     "icons": {
      	"16": "fuzExt16.png",
