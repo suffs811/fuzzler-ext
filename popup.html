@@ -6,12 +6,11 @@
   <style>
 
 	html {
-		background-color: #3b3b3b;
+		background-color: #000000;
 		color: white;
 		text-align: center;
 		font-family: Arial;
 		height: auto;
-		margin-bottom: 10px;
 		font-size: 16px;
 	}
 
@@ -42,25 +41,26 @@
 		background-color: #5c5c5c;
 		color: white;
 		overflow: scroll;
+		margin-bottom: 30px;
 	}
 
-	foooter {
-		background-color: white;
-		height: 3px;
-		position: static;
+	#container {
+		background-color: #3b3b3b;
+		border-radius: 30px;
+		padding: 10px;
 	}
+
   </style>
 </head>
 <body>
 	<div id="container">
 		<h1>Fuzzler Limited</h1>
 		<h3>Create Tailored Word Lists</h3>
-  	</div>
   	<button type="submit" id="button">Fuzz</button>
   	<p id="ip">Initiate Fuzz</p>
   	<p>Results</p>
  	 <textarea id="output"></textarea>
-  	<footer></footer>
+  	</div>
   
   	<script src="./popup.js"></script>
 </body>
