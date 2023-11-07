@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
- 	"version": "1.0",
-  	"name": "Fuzzler Limited - Chrome Extension",
+ 	"version": "1.1",
+  	"name": "Fuzzler Limited",
     "host_permissions": ["http://*/*","https://*/*"],
     "permissions": [
         "tabs"
