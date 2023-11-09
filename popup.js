@@ -98,7 +98,6 @@ function fuzz(initWords) {
 
 	output.value = finalWords;
 
-	ip.style.color = "#e847e8";
 	ip.textContent = "Fuzzing Complete | "+count+" words generated";
 
 
@@ -106,7 +105,11 @@ function fuzz(initWords) {
 
 // create button to call fetchUrl and start the fuzzing process
 button.addEventListener("click", () => {
-	ip.textContent = "Fuzzing "+url;
-	output.value = "This may take a moment...";
-	fetchUrl(url)
+	if (url.includes("http")) {
+		ip.textContent = "Fuzzing page";
+		output.value = "This may take a moment...";
+		fetchUrl(url)
+	} else {
+		ip.textContent = "Error: Can only fuzz http and https sites"
+	}
 });
